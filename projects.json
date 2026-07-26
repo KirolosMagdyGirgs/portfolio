@@ -1,6 +1,4 @@
-Below is the complete JSON with **every project** supporting **1 thumbnail + 2 gallery images** (maximum 3 images total). Just replace your current array with this. The project list and existing data are based on the file you shared. 
 
-```json
 [
   {
     "id": "thndr-portfolio-analyzer",
@@ -258,12 +256,5 @@ Below is the complete JSON with **every project** supporting **1 thumbnail + 2 g
     }
   }
 ]
-```
 
-This keeps every project consistent with:
 
-* `thumbnail` → Cover image
-* `gallery[0]` → Second image
-* `gallery[1]` → Third image
-
-making it perfect for a horizontal scroll/gallery component.
