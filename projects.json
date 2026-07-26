@@ -36,8 +36,11 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/african-analytics-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/african-analytics-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/african-analytics-thumb2.jpg",
+	  "assets/images/projects/african-analytics-thumb3.jpg"
+	  ]
     }
   },
   {
@@ -55,8 +58,10 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/iti-dashboard-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/iti-dashboard-thumb1.jpg",
+      "gallery": [ "assets/images/projects/iti-dashboard-thumb2.jpg",
+	   "assets/images/projects/iti-dashboard-thumb3.jpg"
+	  ]
     }
   },
   {
@@ -74,8 +79,11 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/u17-stats-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/u17-stats-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/u17-stats-thumb2.jpg",
+	  "assets/images/projects/u17-stats-thumb3.jpg"
+	  ]
     }
   },
   {
@@ -93,8 +101,11 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/post-match-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/post-match-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/post-match-thumb2.jpg",
+	  "assets/images/projects/post-match-thumb3.jpg",
+	  ]
     }
   },
   {
@@ -112,7 +123,7 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/icgr-thumb.jpg",
+      "thumbnail": "assets/images/projects/icgr-thumb.jpg",
       "gallery": []
     }
   },
@@ -131,8 +142,11 @@
       "article": "https://kirolosmagdygirgs.substack.com/p/manuel-ugarte-data-and-tactical-notes"
     },
     "media": {
-      "thumbnail": "/assets/images/projects/ugarte-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/ugarte-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/ugarte-thumb2.jpg",
+	  "assets/images/projects/ugarte-thumb3.jpg"
+	  ]
     }
   },
   {
@@ -150,8 +164,10 @@
       "article": "https://kirolosmagdygirgs.substack.com/p/rising-stars-and-breakout-african"
     },
     "media": {
-      "thumbnail": "/assets/images/projects/greece-scouting-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/greece-scouting-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/greece-scouting-thumb2.jpg"
+	  ]
     }
   },
   {
@@ -169,8 +185,11 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/wc-history-thumb.jpg",
-      "gallery": []
+      "thumbnail": "assets/images/projects/wc-history-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/wc-history-thumb2.jpg",
+	  "assets/images/projects/wc-history-thumb3.jpg",
+	  ]
     }
   },
   {
@@ -188,7 +207,7 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/mothiba-thumb.jpg",
+      "thumbnail": "assets/images/projects/mothiba-thumb.jpg",
       "gallery": []
     }
   },
@@ -207,8 +226,30 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/bamba-thumb.jpg",
+      "thumbnail": "assets/images/projects/bamba-thumb.jpg",
       "gallery": []
+    }
+  },
+  {
+    "id": "guinea",
+    "title": "Guinea AFCON Qualifiers Stats",
+    "category": "Power BI",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Power BI"],
+    "shortDescription": "A dashboard focusing on Guinea stats in AFCON Qualifiers.",
+    "longDescription": "Interactive dashboard for stats, most important players , strengths and weaknesses of Guinea in AFCON Qualifiers.",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiNmQ1YzBiYmItZWIwMi00YmE0LThmMjMtMmRlYmZiNjQwNzg0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/guinea-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/guinea-thumb2.jpg",
+	  "assets/images/projects/guinea-thumb3.jpg"
+	  ]
     }
   },
   {
@@ -226,7 +267,7 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/maven-leave-thumb.jpg",
+      "thumbnail": "assets/images/projects/maven-leave-thumb.jpg",
       "gallery": []
     }
   }
