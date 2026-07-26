@@ -5,19 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirolos Magdy Girgs | Data Analyst & BI Developer</title>
     <style>
+        /* Cool Slate & Navy Theme */
+        :root {
+            --bg-main: #0f172a;       /* Deep slate/navy background */
+            --bg-card: #1e293b;       /* Lighter slate for cards */
+            --text-main: #f8fafc;     /* Crisp white text */
+            --text-muted: #94a3b8;    /* Cool gray for secondary text */
+            --accent: #38bdf8;        /* Bright sky blue for links/accents */
+            --border: #334155;
+        }
+
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             margin: 0;
             padding: 2rem;
+            line-height: 1.5;
         }
+
+        /* Header Layout */
         header {
             max-width: 1200px;
-            margin: 0 auto 2rem auto;
-            text-align: center;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
         }
-        h1 { margin-bottom: 0.5rem; }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .header-info h1 {
+            margin: 0 0 0.25rem 0;
+            font-size: 2.5rem;
+            color: var(--text-main);
+        }
+
+        .header-info h2 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-grid a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+        }
+
+        .contact-grid a:hover {
+            color: var(--accent);
+        }
+
+        /* Grid & Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -25,59 +86,138 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .card {
-            background: #ffffff;
-            border-radius: 8px;
+            background: var(--bg-card);
+            border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
         .card iframe {
             width: 100%;
             height: 250px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-bottom: 1rem;
+            background: #ffffff; /* Keeps Power BI background white */
         }
+
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        /* Tags */
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin: 1rem 0;
+            margin: 1.25rem 0;
         }
+
         .tag {
-            background: #e5e7eb;
-            color: #374151;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
         }
+
+        /* Action Links */
         .links {
-            margin-top: auto;
             display: flex;
             gap: 1rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
         }
+
         .links a {
-            color: #2563eb;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
+            transition: opacity 0.2s;
         }
-        .links a:hover { text-decoration: underline; }
+
+        .links a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-grid {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Kirolos Magdy Girgs</h1>
-        <p>Data Analyst | BI Developer | Interactive Portfolio</p>
+        <!-- Upload a photo named profile.jpg to your repository -->
+        <img src="profile.jpg" alt="Kirolos Magdy Girgs" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Kirolos+Magdy&background=38bdf8&color=0f172a&size=150'">
+        
+        <div class="header-info">
+            <h1>Kirolos Magdy Girgs</h1>
+            <h2>Data Analyst | BI Developer</h2>
+            
+            <div class="contact-grid">
+                <span>📍 Cairo, Egypt (Willing to relocate)</span>
+                <span>📱 +201068873267</span>
+                <span>✉️ kirolos.magdy.girgs@gmail.com</span>
+                <a href="https://linkedin.com/in/kirolosmagdy" target="_blank">🔗 LinkedIn: Kirolos Magdy</a>
+                <a href="https://github.com/KirolosMagdyGirgs" target="_blank">💻 GitHub: KirolosMagdyGirgs</a>
+                <a href="https://novypro.com/profile/kirolosmagdy" target="_blank">📊 NovyPro: Kirolos Magdy</a>
+            </div>
+        </div>
     </header>
 
     <main class="grid" id="portfolio-grid"></main>
 
     <script>
+        // Color coding function for tags
+        function getTagStyle(tag) {
+            const t = tag.toLowerCase();
+            if (t.includes('python') || t.includes('pandas')) {
+                return 'background-color: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6;'; // Blue
+            }
+            if (t.includes('power bi') || t.includes('excel')) {
+                return 'background-color: #422006; color: #fef08a; border: 1px solid #eab308;'; // Yellow/Gold
+            }
+            if (t.includes('sql') || t.includes('database') || t.includes('dbt')) {
+                return 'background-color: #7c2d12; color: #ffedd5; border: 1px solid #f97316;'; // Orange
+            }
+            if (t.includes('r') || t.includes('deepseek') || t.includes('ai') || t.includes('machine learning')) {
+                return 'background-color: #4c1d95; color: #e9d5ff; border: 1px solid #a855f7;'; // Purple
+            }
+            if (t.includes('streamlit') || t.includes('web')) {
+                return 'background-color: #064e3b; color: #a7f3d0; border: 1px solid #10b981;'; // Emerald Green
+            }
+            // Default cool gray for everything else (Scouting, etc.)
+            return 'background-color: #334155; color: #f8fafc; border: 1px solid #475569;'; 
+        }
+
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
@@ -90,11 +230,17 @@
                     // Handle Power BI iframes
                     let media = '';
                     if (project.category === 'Power BI' && project.links.livePreview) {
-                        media = `<iframe src="${project.links.livePreview}" allowFullScreen="true"></iframe>`;
+                        media = `<iframe src="${project.links.livePreview}" allowFullScreen="true" loading="lazy"></iframe>`;
+                    } else if (project.media && project.media.thumbnail) {
+                         // Optional: If you want to show image thumbnails for non-PowerBI projects later
+                         // media = `<img src="${project.media.thumbnail}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" alt="Project Thumbnail">`;
                     }
                     
-                    // Handle Tags
-                    const tags = project.techStack.map(tag => `<span class="tag">${tag}</span>`).join('');
+                    // Handle Color-Coded Tags
+                    const tags = project.techStack.map(tag => {
+                        const style = getTagStyle(tag);
+                        return `<span class="tag" style="${style}">${tag}</span>`;
+                    }).join('');
                     
                     // Handle Links
                     let links = '';
@@ -111,7 +257,7 @@
                     card.innerHTML = `
                         ${media}
                         <h3>${project.title}</h3>
-                        <p style="font-size: 0.9rem; color: #4b5563;">${project.shortDescription}</p>
+                        <p>${project.shortDescription}</p>
                         <div class="tags">${tags}</div>
                         <div class="links">${links}</div>
                     `;
