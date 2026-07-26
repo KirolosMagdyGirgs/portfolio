@@ -62,7 +62,7 @@
     "category": "Football Analytics",
     "isFeatured": true,
     "dateCompleted": null,
-    "techStack": ["Python", "Streamlit", "Data Visualization"],
+    "techStack": ["Python", "Streamlit"],
     "shortDescription": "Interactive application providing full competition stats and interactive pitch maps for U17 World Cup analysis.",
     "longDescription": "A centralized analysis tool for scouting and reporting. Includes full competition statistics and interactive pitch maps for passes received, dribbles, key passes, shots, defensive actions, tackles, and recoveries.",
     "links": {
@@ -119,7 +119,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation"],
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Manuel Ugarte's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -138,7 +138,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Player Profiling"],
+    "techStack": ["Data Analysis", "Scout Report", "Tactical Analysis"],
     "shortDescription": "Scouting report analyzing statistical metrics of rising African talents in the Greek domestic league.",
     "longDescription": "A quantitative and observational assessment highlighting breakout performances of African players in the Greek league, prioritizing clear and informative data points over subjective evaluations.",
     "links": {
@@ -176,7 +176,7 @@
     "category": "Power BI",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Power BI", "Data Modeling"],
+    "techStack": ["Power BI"],
     "shortDescription": "Performance dashboard profiling Leo Mothiba's 2022-2023 season statistics.",
     "longDescription": "Power BI dashboard designed to evaluate the 2022-2023 season output for Leo Mothiba through structured data modeling and visualization.",
     "links": {
@@ -195,7 +195,7 @@
     "category": "Power BI",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Power BI", "Data Modeling"],
+    "techStack": ["Power BI"],
     "shortDescription": "Performance dashboard profiling Jonathan Bamba's 2022-2023 season statistics.",
     "longDescription": "Interactive reporting tool detailing Jonathan Bamba's output during the 2022-2023 season, emphasizing accurate positional and metric analysis.",
     "links": {
