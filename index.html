@@ -98,17 +98,18 @@
         }
 
         .card h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
+        .card h3 a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card h3 a:hover { color: var(--accent); }
         .card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; }
 
         /* Image Gallery with button navigation */
         .gallery-wrapper {
             position: relative;
             margin-bottom: 1rem;
-        }
-
-        .gallery-container {
-            display: block;
-            text-decoration: none;
         }
 
         .image-scroller {
@@ -321,12 +322,12 @@
                         });
                     }
 
-                    // 2. Build the Image Gallery HTML
+                    // Determine where clicking the title should take the user
+                    const clickLink = project.links.livePreview || project.links.article || project.links.githubCode || null;
+
+                    // 2. Build the Image Gallery HTML (images are no longer clickable)
                     let mediaHTML = '';
                     if (images.length > 0) {
-                        // Determine where clicking the image should take the user
-                        const clickLink = project.links.livePreview || project.links.article || project.links.githubCode || '#';
-                        
                         const imgTags = images.map(img => `<img src="${img}" alt="${project.title}">`).join('');
 
                         // Nav buttons only make sense with more than one image.
@@ -337,11 +338,9 @@
                         
                         mediaHTML = `
                             <div class="gallery-wrapper">
-                                <a href="${clickLink}" target="_blank" class="gallery-container" title="Click to open project">
-                                    <div class="image-scroller">
-                                        ${imgTags}
-                                    </div>
-                                </a>
+                                <div class="image-scroller">
+                                    ${imgTags}
+                                </div>
                                 ${navHTML}
                             </div>
                         `;
@@ -362,9 +361,14 @@
                         links += `<a href="${project.links.article}" target="_blank">Read Analysis &rarr;</a>`;
                     }
 
+                    // Title is clickable (opens the same link the image gallery used to)
+                    const titleHTML = clickLink
+                        ? `<h3><a href="${clickLink}" target="_blank">${project.title}</a></h3>`
+                        : `<h3>${project.title}</h3>`;
+
                     card.innerHTML = `
                         ${mediaHTML}
-                        <h3>${project.title}</h3>
+                        ${titleHTML}
                         <p>${project.shortDescription}</p>
                         <div class="tags">${tags}</div>
                         <div class="links">${links}</div>
