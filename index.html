@@ -7,11 +7,11 @@
     <style>
         /* Cool Slate & Navy Theme */
         :root {
-            --bg-main: #0f172a;       /* Deep slate/navy background */
-            --bg-card: #1e293b;       /* Lighter slate for cards */
-            --text-main: #f8fafc;     /* Crisp white text */
-            --text-muted: #94a3b8;    /* Cool gray for secondary text */
-            --accent: #38bdf8;        /* Bright sky blue for links/accents */
+            --bg-main: #0f172a;       
+            --bg-card: #1e293b;       
+            --text-main: #f8fafc;     
+            --text-muted: #94a3b8;    
+            --accent: #38bdf8;        
             --border: #334155;
         }
 
@@ -44,18 +44,8 @@
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
-        .header-info h1 {
-            margin: 0 0 0.25rem 0;
-            font-size: 2.5rem;
-            color: var(--text-main);
-        }
-
-        .header-info h2 {
-            margin: 0 0 1rem 0;
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
+        .header-info h1 { margin: 0 0 0.25rem 0; font-size: 2.5rem; color: var(--text-main); }
+        .header-info h2 { margin: 0 0 1rem 0; font-size: 1.25rem; color: var(--accent); font-weight: 500; }
 
         .contact-grid {
             display: flex;
@@ -74,9 +64,7 @@
             transition: color 0.2s;
         }
 
-        .contact-grid a:hover {
-            color: var(--accent);
-        }
+        .contact-grid a:hover { color: var(--accent); }
 
         /* Grid & Cards */
         .grid {
@@ -102,24 +90,48 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        .card iframe {
-            width: 100%;
-            height: 250px;
-            border: none;
-            border-radius: 8px;
+        .card h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
+        .card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; }
+
+        /* Scrollable Image Gallery */
+        .gallery-container {
+            display: block;
             margin-bottom: 1rem;
-            background: #ffffff; /* Keeps Power BI background white */
+            text-decoration: none;
         }
-
-        .card h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.25rem;
+        
+        .image-scroller {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            border-radius: 8px;
+            scrollbar-width: thin; /* Firefox */
         }
+        
+        .image-scroller::-webkit-scrollbar { height: 8px; }
+        .image-scroller::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        
+        .image-scroller img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: opacity 0.2s;
+        }
+        
+        .image-scroller img:hover { opacity: 0.85; }
 
-        .card p {
-            font-size: 0.95rem;
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            flex-grow: 1;
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
         }
 
         /* Tags */
@@ -155,27 +167,18 @@
             transition: opacity 0.2s;
         }
 
-        .links a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
+        .links a:hover { opacity: 0.8; text-decoration: underline; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-grid {
-                justify-content: center;
-            }
+            header { flex-direction: column; text-align: center; }
+            .contact-grid { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Upload a photo named profile.jpg to your repository -->
         <img src="profile.jpg" alt="Kirolos Magdy Girgs" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Kirolos+Magdy&background=38bdf8&color=0f172a&size=150'">
         
         <div class="header-info">
@@ -196,25 +199,23 @@
     <main class="grid" id="portfolio-grid"></main>
 
     <script>
-        // Color coding function for tags
         function getTagStyle(tag) {
             const t = tag.toLowerCase();
             if (t.includes('python') || t.includes('pandas')) {
-                return 'background-color: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6;'; // Blue
+                return 'background-color: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6;'; 
             }
             if (t.includes('power bi') || t.includes('excel')) {
-                return 'background-color: #422006; color: #fef08a; border: 1px solid #eab308;'; // Yellow/Gold
+                return 'background-color: #422006; color: #fef08a; border: 1px solid #eab308;'; 
             }
             if (t.includes('sql') || t.includes('database') || t.includes('dbt')) {
-                return 'background-color: #7c2d12; color: #ffedd5; border: 1px solid #f97316;'; // Orange
+                return 'background-color: #7c2d12; color: #ffedd5; border: 1px solid #f97316;'; 
             }
             if (t.includes('r') || t.includes('deepseek') || t.includes('ai') || t.includes('machine learning')) {
-                return 'background-color: #4c1d95; color: #e9d5ff; border: 1px solid #a855f7;'; // Purple
+                return 'background-color: #4c1d95; color: #e9d5ff; border: 1px solid #a855f7;'; 
             }
             if (t.includes('streamlit') || t.includes('web')) {
-                return 'background-color: #064e3b; color: #a7f3d0; border: 1px solid #10b981;'; // Emerald Green
+                return 'background-color: #064e3b; color: #a7f3d0; border: 1px solid #10b981;'; 
             }
-            // Default cool gray for everything else (Scouting, etc.)
             return 'background-color: #334155; color: #f8fafc; border: 1px solid #475569;'; 
         }
 
@@ -227,25 +228,42 @@
                     const card = document.createElement('div');
                     card.className = 'card';
                     
-                    // Handle Power BI iframes
-                    let media = '';
-                    if (project.category === 'Power BI' && project.links.livePreview) {
-                        media = `<iframe src="${project.links.livePreview}" allowFullScreen="true" loading="lazy"></iframe>`;
-                    } else if (project.media && project.media.thumbnail) {
-                         // Optional: If you want to show image thumbnails for non-PowerBI projects later
-                         // media = `<img src="${project.media.thumbnail}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" alt="Project Thumbnail">`;
+                    // 1. Gather all images (Thumbnail + Gallery)
+                    const images = [];
+                    if (project.media && project.media.thumbnail) {
+                        images.push(project.media.thumbnail);
+                    }
+                    if (project.media && project.media.gallery && project.media.gallery.length > 0) {
+                        project.media.gallery.forEach(img => {
+                            if (!images.includes(img)) images.push(img); // Avoid duplicates
+                        });
+                    }
+
+                    // 2. Build the Image Gallery HTML
+                    let mediaHTML = '';
+                    if (images.length > 0) {
+                        // Determine where clicking the image should take the user
+                        const clickLink = project.links.livePreview || project.links.article || project.links.githubCode || '#';
+                        
+                        const imgTags = images.map(img => `<img src="${img}" alt="${project.title}">`).join('');
+                        
+                        mediaHTML = `
+                            <a href="${clickLink}" target="_blank" class="gallery-container" title="Click to open project">
+                                <div class="image-scroller">
+                                    ${imgTags}
+                                </div>
+                            </a>
+                            ${images.length > 1 ? '<div class="scroll-hint">↔ Swipe/Scroll for more images</div>' : ''}
+                        `;
                     }
                     
-                    // Handle Color-Coded Tags
                     const tags = project.techStack.map(tag => {
-                        const style = getTagStyle(tag);
-                        return `<span class="tag" style="${style}">${tag}</span>`;
+                        return `<span class="tag" style="${getTagStyle(tag)}">${tag}</span>`;
                     }).join('');
                     
-                    // Handle Links
                     let links = '';
-                    if (project.links.livePreview && project.category !== 'Power BI') {
-                        links += `<a href="${project.links.livePreview}" target="_blank">Live App &rarr;</a>`;
+                    if (project.links.livePreview) {
+                        links += `<a href="${project.links.livePreview}" target="_blank">Live View &rarr;</a>`;
                     }
                     if (project.links.githubCode) {
                         links += `<a href="${project.links.githubCode}" target="_blank">GitHub &rarr;</a>`;
@@ -255,7 +273,7 @@
                     }
 
                     card.innerHTML = `
-                        ${media}
+                        ${mediaHTML}
                         <h3>${project.title}</h3>
                         <p>${project.shortDescription}</p>
                         <div class="tags">${tags}</div>
