@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirolos Magdy Girgs | Data Analyst & BI Developer</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            margin: 0;
+            padding: 2rem;
+        }
+        header {
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+        }
+        h1 { margin-bottom: 0.5rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .card iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tag {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .links {
+            margin-top: auto;
+            display: flex;
+            gap: 1rem;
+        }
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kirolos Magdy Girgs</h1>
+        <p>Data Analyst | BI Developer | Interactive Portfolio</p>
+    </header>
+
+    <main class="grid" id="portfolio-grid"></main>
+
+    <script>
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(data => {
+                const grid = document.getElementById('portfolio-grid');
+                
+                data.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    // Handle Power BI iframes
+                    let media = '';
+                    if (project.category === 'Power BI' && project.links.livePreview) {
+                        media = `<iframe src="${project.links.livePreview}" allowFullScreen="true"></iframe>`;
+                    }
+                    
+                    // Handle Tags
+                    const tags = project.techStack.map(tag => `<span class="tag">${tag}</span>`).join('');
+                    
+                    // Handle Links
+                    let links = '';
+                    if (project.links.livePreview && project.category !== 'Power BI') {
+                        links += `<a href="${project.links.livePreview}" target="_blank">Live App &rarr;</a>`;
+                    }
+                    if (project.links.githubCode) {
+                        links += `<a href="${project.links.githubCode}" target="_blank">GitHub &rarr;</a>`;
+                    }
+                    if (project.links.article) {
+                        links += `<a href="${project.links.article}" target="_blank">Read Analysis &rarr;</a>`;
+                    }
+
+                    card.innerHTML = `
+                        ${media}
+                        <h3>${project.title}</h3>
+                        <p style="font-size: 0.9rem; color: #4b5563;">${project.shortDescription}</p>
+                        <div class="tags">${tags}</div>
+                        <div class="links">${links}</div>
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error loading projects:', error));
+    </script>
+</body>
+</html>
