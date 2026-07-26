@@ -14,7 +14,239 @@
       "article": null
     },
     "media": {
-      "thumbnail": "/assets/images/projects/thndr-thumb.jpg",
+      "thumbnail": "assets/images/projects/thndr-thumb.jpg",
+      "gallery": [
+        "/assets/images/projects/thndr-1.jpg",
+        "/assets/images/projects/thndr-2.jpg"
+      ]
+    }
+  },
+  {
+    "id": "african-football-analytics",
+    "title": "African Football Analytics Web App",
+    "category": "Web App",
+    "isFeatured": true,
+    "dateCompleted": "2023-05",
+    "techStack": ["Python", "Streamlit"],
+    "shortDescription": "Streamlit app comparing player percentiles and full-season stats; 415 unique users[cite: 1].",
+    "longDescription": "Interactive web application allowing users to compare player percentiles and full-season performance statistics[cite: 1]. Designed to provide clear and objective player profiling metrics.",
+    "links": {
+      "livePreview": "https://african-football-analytics.streamlit.app",
+      "githubCode": "https://github.com/KirolosMagdyGirgs/African-Football-Analytics/tree/main",
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/african-analytics-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "iti-simulation",
+    "title": "ITI Simulation Project",
+    "category": "Power BI",
+    "isFeatured": true,
+    "dateCompleted": "2023-03",
+    "techStack": ["Power BI"],
+    "shortDescription": "Power BI dashboards tracking the ITI internship lifecycle from application to graduation[cite: 1].",
+    "longDescription": "Comprehensive Power BI reporting suite designed to monitor and analyze the full ITI internship lifecycle, tracking metrics from the initial application phase through to graduation[cite: 1].",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiM2E0MWI1ODUtNmZhMy00N2RiLWEwODAtNTNiYjNlODQzYzg5IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/iti-dashboard-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "world-cup-u17-stats",
+    "title": "World Cup U17 Stats Analyzer",
+    "category": "Football Analytics",
+    "isFeatured": true,
+    "dateCompleted": null,
+    "techStack": ["Python", "Streamlit"],
+    "shortDescription": "Interactive application providing full competition stats and interactive pitch maps for U17 World Cup analysis.",
+    "longDescription": "A centralized analysis tool for scouting and reporting. Includes full competition statistics and interactive pitch maps for passes received, dribbles, key passes, shots, defensive actions, tackles, and recoveries.",
+    "links": {
+      "livePreview": "https://world-cup-u17-stats.streamlit.app",
+      "githubCode": "https://github.com/KirolosMagdyGirgs/WORLD-CUP-U17-STATS",
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/u17-stats-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "post-match-stats",
+    "title": "Post-Match Advanced Football Stats Report",
+    "category": "Football Analytics",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["R", "Python", "Excel"],
+    "shortDescription": "Football match analysis covering player and team performance[cite: 1].",
+    "longDescription": "Analytical reporting workflow detailing player and team performance metrics after matches, utilizing R and Python for statistical modeling and processing[cite: 1].",
+    "links": {
+      "livePreview": "https://kirolos-magdy.imgbb.com/albums",
+      "githubCode": "https://github.com/KirolosMagdyGirgs/African-Football-Analytics/tree/main",
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/post-match-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "icgr-neural-network",
+    "title": "ICGR Neural Network Analysis",
+    "category": "Machine Learning",
+    "isFeatured": false,
+    "dateCompleted": "2022",
+    "techStack": ["Python", "Computer Vision", "Neural Networks"],
+    "shortDescription": "Web app analyzing biological data via ICGR representation, computer vision and neural networks. (Python, Grade: A)[cite: 1].",
+    "longDescription": "Faculty graduation project focused on biological data analysis. Leveraged computer vision and neural networks to process information via ICGR representation, earning an A grade[cite: 1].",
+    "links": {
+      "livePreview": null,
+      "githubCode": "https://github.com/KirolosMagdyGirgs/ICGR_NeuralNetwork",
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/icgr-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "scouting-ugarte",
+    "title": "Manuel Ugarte Data & Tactical Notes",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Manuel Ugarte's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://kirolosmagdygirgs.substack.com/p/manuel-ugarte-data-and-tactical-notes"
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/ugarte-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "scouting-greek-talents",
+    "title": "Breakout African Talents in Greece",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Scouting report analyzing statistical metrics of rising African talents in the Greek domestic league.",
+    "longDescription": "A quantitative and observational assessment highlighting breakout performances of African players in the Greek league, prioritizing clear and informative data points over subjective evaluations.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://kirolosmagdygirgs.substack.com/p/rising-stars-and-breakout-african"
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/greece-scouting-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "world-cup-history",
+    "title": "World Cup History & Qatar 2022",
+    "category": "Power BI",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Power BI"],
+    "shortDescription": "Interactive dashboard exploring historical World Cup data and providing an overview of the 2022 tournament.",
+    "longDescription": "A comprehensive Power BI model built to navigate historical metrics from past FIFA World Cup tournaments alongside data specific to the Qatar 2022 competition.",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiZWRiOTM1YzEtY2E2OS00MDcwLThiOWMtNjliNGZhZjg4NTI1IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/wc-history-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "profile-mothiba",
+    "title": "Leo Mothiba Data Profile 22-23",
+    "category": "Power BI",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Power BI"],
+    "shortDescription": "Performance dashboard profiling Leo Mothiba's 2022-2023 season statistics.",
+    "longDescription": "Power BI dashboard designed to evaluate the 2022-2023 season output for Leo Mothiba through structured data modeling and visualization.",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiNzNiYjYxMTEtNjk2NC00NDA2LWFhNzctZjIxYTQ0ZTcyZGU3IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/mothiba-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "profile-bamba",
+    "title": "Jonathan Bamba Data Profile 22-23",
+    "category": "Power BI",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Power BI"],
+    "shortDescription": "Performance dashboard profiling Jonathan Bamba's 2022-2023 season statistics.",
+    "longDescription": "Interactive reporting tool detailing Jonathan Bamba's output during the 2022-2023 season, emphasizing accurate positional and metric analysis.",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiZDY1YTdlNzAtMDkzMy00NDVmLTliZTEtYzBkNmRkNzU0NTc2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/bamba-thumb.jpg",
+      "gallery": []
+    }
+  },
+  {
+    "id": "maven-family-leave",
+    "title": "Maven Analytics Challenge: Family Leave",
+    "category": "Power BI",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Power BI"],
+    "shortDescription": "Dashboard created for the Maven Analytics challenge focusing on corporate family leave metrics.",
+    "longDescription": "An exploratory data analysis and visualization dashboard built in Power BI to analyze family leave policies and utilization metrics for a Maven Analytics dataset challenge.",
+    "links": {
+      "livePreview": "https://app.powerbi.com/view?r=eyJrIjoiMDAxNTc0NDctMzIzMC00YmM5LWE1MzMtMmFkMDBlY2MxMzIyIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+      "githubCode": null,
+      "article": null
+    },
+    "media": {
+      "thumbnail": "/assets/images/projects/maven-leave-thumb.jpg",
+      "gallery": []
+    }
+  }
+][
+  {
+    "id": "thndr-portfolio-analyzer",
+    "title": "Thndr Portfolio Analyzer",
+    "category": "Data Pipeline",
+    "isFeatured": true,
+    "dateCompleted": "2023-06",
+    "techStack": ["Python", "DeepSeek AI", "Crawl4AI"],
+    "shortDescription": "Scrapes live Thndr portfolio data, fetches real-time TradingView indicators, and generates AI-powered reports in English & Arabic[cite: 1].",
+    "longDescription": "An automated pipeline that extracts live Thndr portfolio data and integrates real-time TradingView indicators to produce AI-generated financial reports in both English and Arabic[cite: 1].",
+    "links": {
+      "livePreview": null,
+      "githubCode": "https://github.com/KirolosMagdyGirgs/thndr-portfolio-analyzer",
+      "article": null
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/thndr-thumb.jpg",
       "gallery": [
         "/assets/images/projects/thndr-1.jpg",
         "/assets/images/projects/thndr-2.jpg"
