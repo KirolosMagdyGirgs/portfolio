@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>📊 Kirolos Magdy Portfolio</title>
 
@@ -100,25 +100,32 @@
         .card h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
         .card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; }
 
-        /* Scrollable Image Gallery */
+        /* Image Gallery with button navigation */
+        .gallery-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
         .gallery-container {
             display: block;
-            margin-bottom: 1rem;
             text-decoration: none;
         }
-        
+
         .image-scroller {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 10px;
             border-radius: 8px;
-            scrollbar-width: thin; /* Firefox */
+            scroll-behavior: smooth;
+
+            /* Hide native scrollbar; buttons handle navigation now */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        
-        .image-scroller::-webkit-scrollbar { height: 8px; }
-        .image-scroller::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        
+
+        .image-scroller::-webkit-scrollbar { display: none; }
+
         .image-scroller img {
             width: 100%;
             height: 220px;
@@ -132,13 +139,46 @@
         
         .image-scroller img:hover { opacity: 0.85; }
 
-        .scroll-hint {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: -0.5rem;
-            margin-bottom: 1rem;
-            font-style: italic;
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.75);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .gallery-wrapper:hover .gallery-nav:not(:disabled) { opacity: 1; }
+
+        .gallery-nav:hover:not(:disabled) {
+            background: var(--accent);
+            color: var(--bg-main);
+            border-color: var(--accent);
+        }
+
+        .gallery-nav:disabled {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        .gallery-nav.prev { left: 8px; }
+        .gallery-nav.next { right: 8px; }
+
+        /* Touch devices: keep buttons visible since there's no hover state */
+        @media (hover: none) {
+            .gallery-nav:not(:disabled) { opacity: 1; }
         }
 
         /* Tags */
@@ -229,6 +269,38 @@
             return 'background-color: #334155; color: #f8fafc; border: 1px solid #475569;'; 
         }
 
+        // Wires up the prev/next buttons for one gallery, and keeps them
+        // enabled/disabled based on scroll position.
+        function initGalleryNav(wrapper) {
+            const scroller = wrapper.querySelector('.image-scroller');
+            const prevBtn = wrapper.querySelector('.gallery-nav.prev');
+            const nextBtn = wrapper.querySelector('.gallery-nav.next');
+            if (!scroller || !prevBtn || !nextBtn) return;
+
+            const step = () => (scroller.querySelector('img')?.clientWidth || scroller.clientWidth) + 10; // image width + gap
+
+            const updateButtons = () => {
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                prevBtn.disabled = scroller.scrollLeft <= 2;
+                nextBtn.disabled = scroller.scrollLeft >= maxScroll - 2;
+            };
+
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                scroller.scrollBy({ left: -step(), behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                scroller.scrollBy({ left: step(), behavior: 'smooth' });
+            });
+
+            scroller.addEventListener('scroll', updateButtons);
+            updateButtons();
+        }
+
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
@@ -256,14 +328,22 @@
                         const clickLink = project.links.livePreview || project.links.article || project.links.githubCode || '#';
                         
                         const imgTags = images.map(img => `<img src="${img}" alt="${project.title}">`).join('');
+
+                        // Nav buttons only make sense with more than one image.
+                        const navHTML = images.length > 1 ? `
+                                <button type="button" class="gallery-nav prev" aria-label="Previous image">&#10094;</button>
+                                <button type="button" class="gallery-nav next" aria-label="Next image">&#10095;</button>
+                            ` : '';
                         
                         mediaHTML = `
-                            <a href="${clickLink}" target="_blank" class="gallery-container" title="Click to open project">
-                                <div class="image-scroller">
-                                    ${imgTags}
-                                </div>
-                            </a>
-                            ${images.length > 1 ? '<div class="scroll-hint">↔ Swipe/Scroll for more images</div>' : ''}
+                            <div class="gallery-wrapper">
+                                <a href="${clickLink}" target="_blank" class="gallery-container" title="Click to open project">
+                                    <div class="image-scroller">
+                                        ${imgTags}
+                                    </div>
+                                </a>
+                                ${navHTML}
+                            </div>
                         `;
                     }
                     
@@ -291,6 +371,9 @@
                     `;
                     
                     grid.appendChild(card);
+
+                    const wrapper = card.querySelector('.gallery-wrapper');
+                    if (wrapper) initGalleryNav(wrapper);
                 });
             })
             .catch(error => console.error('Error loading projects:', error));
