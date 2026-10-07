@@ -29,7 +29,7 @@
         /* Header Layout */
         header {
 			max-width: 1200px;
-			margin: 0 auto 3rem auto;
+			margin: 0 auto 2rem auto;
 			display: flex;
 			align-items: center;
 			gap: 2.5rem;
@@ -41,13 +41,9 @@
 			width: 200px;
 			height: 240px;
 			object-fit: cover;
-
-			/* Rounded square instead of a circle */
 			border-radius: 18px;
-
 			border: 3px solid var(--accent);
 			box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-
 			flex-shrink: 0;
 		}
 
@@ -73,6 +69,55 @@
 
         .contact-grid a:hover { color: var(--accent); }
 
+        /* Filter Bar */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .filter-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.4rem;
+        }
+
+        .filter-btn {
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-main);
+        }
+
+        .filter-count {
+            opacity: 0.7;
+            margin-left: 0.3rem;
+            font-weight: 500;
+        }
+
         /* Grid & Cards */
         .grid {
             display: grid;
@@ -91,6 +136,8 @@
             flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .card.hidden { display: none; }
 
         .card:hover {
             transform: translateY(-4px);
@@ -119,8 +166,6 @@
             gap: 10px;
             border-radius: 8px;
             scroll-behavior: smooth;
-
-            /* Hide native scrollbar; buttons handle navigation now */
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -177,7 +222,6 @@
         .gallery-nav.prev { left: 8px; }
         .gallery-nav.next { right: 8px; }
 
-        /* Touch devices: keep buttons visible since there's no hover state */
         @media (hover: none) {
             .gallery-nav:not(:disabled) { opacity: 1; }
         }
@@ -196,6 +240,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.025em;
+            cursor: pointer;
         }
 
         /* Action Links */
@@ -247,6 +292,9 @@
         </div>
     </header>
 
+    <!-- Filter buttons are generated from the tags in projects.json -->
+    <nav class="filter-bar" id="filter-bar" aria-label="Filter projects"></nav>
+
     <main class="grid" id="portfolio-grid"></main>
 
     <script>
@@ -270,15 +318,13 @@
             return 'background-color: #334155; color: #f8fafc; border: 1px solid #475569;'; 
         }
 
-        // Wires up the prev/next buttons for one gallery, and keeps them
-        // enabled/disabled based on scroll position.
         function initGalleryNav(wrapper) {
             const scroller = wrapper.querySelector('.image-scroller');
             const prevBtn = wrapper.querySelector('.gallery-nav.prev');
             const nextBtn = wrapper.querySelector('.gallery-nav.next');
             if (!scroller || !prevBtn || !nextBtn) return;
 
-            const step = () => (scroller.querySelector('img')?.clientWidth || scroller.clientWidth) + 10; // image width + gap
+            const step = () => (scroller.querySelector('img')?.clientWidth || scroller.clientWidth) + 10;
 
             const updateButtons = () => {
                 const maxScroll = scroller.scrollWidth - scroller.clientWidth;
@@ -302,6 +348,64 @@
             updateButtons();
         }
 
+        // ---- Filtering ----
+        let activeFilter = 'all';
+
+        function applyFilter(filter) {
+            activeFilter = filter;
+
+            document.querySelectorAll('#portfolio-grid .card').forEach(card => {
+                const cardTags = JSON.parse(card.dataset.tags);
+                const show = filter === 'all' || cardTags.includes(filter);
+                card.classList.toggle('hidden', !show);
+            });
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+        }
+
+        function buildFilterBar(projects) {
+            const bar = document.getElementById('filter-bar');
+
+            // Count projects per tag (case-insensitive, keeps first-seen label)
+            const counts = new Map(); // key -> { label, count }
+            projects.forEach(p => {
+                const seen = new Set();
+                p.techStack.forEach(tag => {
+                    const key = tag.toLowerCase();
+                    if (seen.has(key)) return;
+                    seen.add(key);
+                    if (!counts.has(key)) counts.set(key, { label: tag, count: 0 });
+                    counts.get(key).count++;
+                });
+            });
+
+            const makeBtn = (key, label, count) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'filter-btn';
+                btn.dataset.filter = key;
+                btn.innerHTML = `${label}<span class="filter-count">${count}</span>`;
+                btn.addEventListener('click', () => applyFilter(key));
+                return btn;
+            };
+
+            const label = document.createElement('span');
+            label.className = 'filter-label';
+            label.textContent = 'Filter:';
+            bar.appendChild(label);
+
+            bar.appendChild(makeBtn('all', 'All', projects.length));
+
+            // Most-used tags first
+            [...counts.entries()]
+                .sort((a, b) => b[1].count - a[1].count || a[1].label.localeCompare(b[1].label))
+                .forEach(([key, { label, count }]) => bar.appendChild(makeBtn(key, label, count)));
+
+            applyFilter('all');
+        }
+
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
@@ -310,27 +414,24 @@
                 data.forEach(project => {
                     const card = document.createElement('div');
                     card.className = 'card';
+                    card.dataset.tags = JSON.stringify(project.techStack.map(t => t.toLowerCase()));
                     
-                    // 1. Gather all images (Thumbnail + Gallery)
                     const images = [];
                     if (project.media && project.media.thumbnail) {
                         images.push(project.media.thumbnail);
                     }
                     if (project.media && project.media.gallery && project.media.gallery.length > 0) {
                         project.media.gallery.forEach(img => {
-                            if (!images.includes(img)) images.push(img); // Avoid duplicates
+                            if (!images.includes(img)) images.push(img);
                         });
                     }
 
-                    // Determine where clicking the title should take the user
                     const clickLink = project.links.livePreview || project.links.article || project.links.githubCode || null;
 
-                    // 2. Build the Image Gallery HTML (images are no longer clickable)
                     let mediaHTML = '';
                     if (images.length > 0) {
                         const imgTags = images.map(img => `<img src="${img}" alt="${project.title}">`).join('');
 
-                        // Nav buttons only make sense with more than one image.
                         const navHTML = images.length > 1 ? `
                                 <button type="button" class="gallery-nav prev" aria-label="Previous image">&#10094;</button>
                                 <button type="button" class="gallery-nav next" aria-label="Next image">&#10095;</button>
@@ -346,8 +447,9 @@
                         `;
                     }
                     
+                    // Clicking a tag on a card also applies that filter
                     const tags = project.techStack.map(tag => {
-                        return `<span class="tag" style="${getTagStyle(tag)}">${tag}</span>`;
+                        return `<span class="tag" data-filter="${tag.toLowerCase()}" style="${getTagStyle(tag)}">${tag}</span>`;
                     }).join('');
                     
                     let links = '';
@@ -361,7 +463,6 @@
                         links += `<a href="${project.links.article}" target="_blank">Read Analysis &rarr;</a>`;
                     }
 
-                    // Title is clickable (opens the same link the image gallery used to)
                     const titleHTML = clickLink
                         ? `<h3><a href="${clickLink}" target="_blank">${project.title}</a></h3>`
                         : `<h3>${project.title}</h3>`;
@@ -373,12 +474,18 @@
                         <div class="tags">${tags}</div>
                         <div class="links">${links}</div>
                     `;
+
+                    card.querySelectorAll('.tag').forEach(el => {
+                        el.addEventListener('click', () => applyFilter(el.dataset.filter));
+                    });
                     
                     grid.appendChild(card);
 
                     const wrapper = card.querySelector('.gallery-wrapper');
                     if (wrapper) initGalleryNav(wrapper);
                 });
+
+                buildFilterBar(data);
             })
             .catch(error => console.error('Error loading projects:', error));
     </script>
