@@ -157,7 +157,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": ["Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing left-back Jorge Salinas's defensive performances.",
     "longDescription": "A one-page scouting report evaluating Jorge Salinas across four key pillars: tactical, technical, physical, and mental to assess his overall impact at left-back.",
     "links": {
@@ -178,7 +178,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": ["Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Youri Tielemans's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -200,7 +200,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": ["Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Alex Scott's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -221,7 +221,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": [ "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Mamadou Sangaré's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -242,7 +242,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": [ "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Mateus Fernandes's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -263,7 +263,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": [ "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Andrey Santos's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -284,7 +284,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": [ "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Manu Koné's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -305,7 +305,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": [ "Video Annotation", "Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
     "longDescription": "An informative breakdown of Manuel Ugarte's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
     "links": {
@@ -327,7 +327,7 @@
     "category": "Football Scouting",
     "isFeatured": false,
     "dateCompleted": null,
-    "techStack": ["Data Analysis", "Scout Report", "Tactical Analysis","Football Data Analysis"],
+    "techStack": ["Scout Report", "Tactical Analysis","Football Data Analysis"],
     "shortDescription": "Scouting report analyzing statistical metrics of rising African talents in the Greek domestic league.",
     "longDescription": "A quantitative and observational assessment highlighting breakout performances of African players in the Greek league, prioritizing clear and informative data points over subjective evaluations.",
     "links": {
