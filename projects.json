@@ -66,11 +66,11 @@
   },
   {
     "id": "world-cup-u17-stats",
-    "title": "World Cup U17 Stats Analyzer",
+    "title": "World Cup U17 Advanced Stats & Maps",
     "category": "Football Analytics",
     "isFeatured": true,
     "dateCompleted": null,
-    "techStack": ["Python", "Streamlit"],
+    "techStack": ["Python", "Streamlit","Web Scraping"],
     "shortDescription": "Interactive application providing full competition stats and interactive pitch maps for U17 World Cup analysis.",
     "longDescription": "A centralized analysis tool for scouting and reporting. Includes full competition statistics and interactive pitch maps for passes received, dribbles, key passes, shots, defensive actions, tackles, and recoveries.",
     "links": {
@@ -191,6 +191,111 @@
       "gallery": [
 	  "assets/images/projects/tiele-thumb2.jpg",
 	  "assets/images/projects/tiele-thumb3.jpg"
+	  ]
+    }
+  },
+  {
+    "id": "scouting-alex-scott",
+    "title": "Alex Scott Scout Report",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Alex Scott's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2064102683842068498"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/scott-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/scott-thumb2.jpg"
+	  ]
+    }
+  },
+  {
+    "id": "scouting-mamadou-sangare",
+    "title": "Mamadou Sangaré Scout Report",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Mamadou Sangaré's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2067039081654100288"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/sangare-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/sangare-thumb2.jpg"
+	  ]
+    }
+  },
+  {
+    "id": "scouting-mateus-fernandes",
+    "title": "Mateus Fernandes Scout Report",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Mateus Fernandes's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2061187776695922725"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/mateus-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/mateus-thumb2.jpg"
+	  ]
+    }
+  },
+  {
+    "id": "scouting-andrey-santos",
+    "title": "Andrey Santos Scout Report",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Andrey Santos's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2077044298588012727"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/santos-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/santos-thumb2.jpg"
+	  ]
+    }
+  },
+  {
+    "id": "scouting-manu-kone",
+    "title": "Manu Koné Scout Report",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Video Annotation", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing midfield performances.",
+    "longDescription": "An informative breakdown of Manu Koné's playing profile, combining objective data points with tactical match observations to assess overall midfield impact.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2078581658626727980"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/kone-thumb1.jpg",
+      "gallery": [
+	  "assets/images/projects/kone-thumb2.jpg"
 	  ]
     }
   },
