@@ -152,6 +152,27 @@
     }
   },
   {
+    "id": "scouting-Salinas",
+    "title": "Jorge Salinas Data & Tactical Notes",
+    "category": "Football Scouting",
+    "isFeatured": false,
+    "dateCompleted": null,
+    "techStack": ["Data Analysis", "Scout Report", "Tactical Analysis"],
+    "shortDescription": "Objective data profiling and tactical notes detailing left-back Jorge Salinas's defensive performances.",
+    "longDescription": "A one-page scouting report evaluating Jorge Salinas across four key pillars: tactical, technical, physical, and mental to assess his overall impact at left-back.",
+    "links": {
+      "livePreview": null,
+      "githubCode": null,
+      "article": "https://x.com/SaidMeaza/status/2093432077769429037?s=20"
+    },
+    "media": {
+      "thumbnail": "assets/images/projects/salinas-scouting-reprot.jpg",
+      "gallery": [
+
+	  ]
+    }
+  },
+  {
     "id": "scouting-youri-tielemans",
     "title": "Youri Tielemans Scout Report",
     "category": "Football Scouting",
